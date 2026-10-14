@@ -1,0 +1,19 @@
+[functions.namaa-chat]
+verify_jwt = true
+entrypoint = "./functions/namaa-chat/index.ts"
+
+[functions.namaa-conversations]
+verify_jwt = true
+entrypoint = "./functions/namaa-conversations/index.ts"
+
+[functions.namaa-weather]
+verify_jwt = false
+entrypoint = "./functions/namaa-weather/index.ts"
+
+[functions.namaa-sensor-ingest]
+verify_jwt = false
+entrypoint = "./functions/namaa-sensor-ingest/index.ts"
+
+[functions.namaa-embed]
+verify_jwt = false
+entrypoint = "./functions/namaa-embed/index.ts"

@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --forest: #0A3323;
+    --moss: #839958;
+    --cream: #FAF8F5;
+    --rose: #D3968C;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-cream-100 text-forest-700 font-sans antialiased;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(131, 153, 88, 0.10), transparent 45%),
+      radial-gradient(circle at 88% 82%, rgba(16, 86, 102, 0.08), transparent 45%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-moss-200 text-forest-800;
+  }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { @apply bg-cream-100; }
+  ::-webkit-scrollbar-thumb { @apply bg-moss-300 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-moss-400; }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/55 backdrop-blur-xl border border-white/60 shadow-[0_8px_40px_-12px_rgba(10,51,35,0.18)];
+  }
+  .glass-dark {
+    @apply bg-forest-700/55 backdrop-blur-xl border border-white/15 shadow-[0_8px_40px_-12px_rgba(3,26,15,0.5)];
+  }
+  .glass-card {
+    @apply glass rounded-3xl transition-all duration-500;
+  }
+  .glass-card-hover {
+    @apply hover:shadow-[0_18px_60px_-12px_rgba(10,51,35,0.28)] hover:-translate-y-1;
+  }
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold;
+  }
+  .section-eyebrow {
+    @apply text-moss-500 font-semibold tracking-[0.22em] uppercase text-xs;
+  }
+  .heading-gradient {
+    @apply bg-gradient-to-br from-forest-700 via-forest-600 to-moss-500 bg-clip-text text-transparent;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-forest-600 px-6 py-3 text-cream-100 font-semibold shadow-lg shadow-forest-700/25 transition-all duration-300 hover:bg-forest-700 hover:shadow-xl hover:shadow-forest-700/30 hover:-translate-y-0.5 active:translate-y-0;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-forest-600/25 bg-white/40 px-6 py-3 font-semibold text-forest-700 transition-all duration-300 hover:bg-white/70 hover:border-forest-600/40;
+  }
+  .metric-ring {
+    background: conic-gradient(var(--ring-color) calc(var(--value) * 1%), rgba(255,255,255,0.25) 0);
+  }
+  .grid-paper {
+    background-image:
+      linear-gradient(rgba(10,51,35,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10,51,35,0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .topo-lines {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q25 30 50 50 T100 50' stroke='%231F5C42' stroke-opacity='0.08' fill='none'/%3E%3Cpath d='M0 70 Q25 50 50 70 T100 70' stroke='%231F5C42' stroke-opacity='0.06' fill='none'/%3E%3Cpath d='M0 30 Q25 10 50 30 T100 30' stroke='%231F5C42' stroke-opacity='0.06' fill='none'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+  .animate-delay-100 { animation-delay: 0.1s; }
+  .animate-delay-200 { animation-delay: 0.2s; }
+  .animate-delay-300 { animation-delay: 0.3s; }
+  .animate-delay-500 { animation-delay: 0.5s; }
+  .animate-delay-700 { animation-delay: 0.7s; }
+  .animate-delay-1000 { animation-delay: 1s; }
+  .animate-delay-1500 { animation-delay: 1.5s; }
+  .animate-delay-2000 { animation-delay: 2s; }
+  .animate-delay-2500 { animation-delay: 2.5s; }
+  .animate-delay-3000 { animation-delay: 3s; }
+  .animate-delay-4000 { animation-delay: 4s; }
+  .animate-delay-5000 { animation-delay: 5s; }
+  .animate-delay-6000 { animation-delay: 6s; }
+  .animate-delay-7000 { animation-delay: 7s; }
+  .animate-delay-8000 { animation-delay: 8s; }
+  .animate-delay-9000 { animation-delay: 9s; }
+  .animate-delay-10000 { animation-delay: 10s; }
+  .animate-delay-11000 { animation-delay: 11s; }
+  .animate-delay-12000 { animation-delay: 12s; }
+  .animate-delay-13000 { animation-delay: 13s; }
+  .animate-delay-14000 { animation-delay: 14s; }
+  .animate-delay-15000 { animation-delay: 15s; }
+  .animate-delay-16000 { animation-delay: 16s; }
+  .animate-delay-17000 { animation-delay: 17s; }
+  .animate-delay-18000 { animation-delay: 18s; }
+  .animate-delay-19000 { animation-delay: 19s; }
+  .animate-delay-20000 { animation-delay: 20s; }
+  .animate-delay-21000 { animation-delay: 21s; }
+  .animate-delay-22000 { animation-delay: 22s; }
+  .animate-delay-23000 { animation-delay: 23s; }
+  .animate-delay-24000 { animation-delay: 24s; }
+  .animate-delay-25000 { animation-delay: 25s; }
+  .animate-delay-26000 { animation-delay: 26s; }
+  .animate-delay-27000 { animation-delay: 27s; }
+  .animate-delay-28000 { animation-delay: 28s; }
+  .animate-delay-29000 { animation-delay: 29s; }
+  .animate-delay-30000 { animation-delay: 30s; }
+}
