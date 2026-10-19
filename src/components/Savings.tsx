@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
-import { Sprout, Droplets, Leaf, TrendingUp, DollarSign } from 'lucide-react';
-import { SAVINGS } from '@/data';
+import { Construction, TrendingUp } from 'lucide-react';
 
 function useCountUp(target: number, duration = 1400) {
   const [val, setVal] = useState(0);
@@ -45,57 +43,50 @@ function StatCard({
 }
 
 export default function Savings() {
-  return (
-    <section id="savings" className="relative py-24 sm:py-32 bg-gradient-to-b from-transparent via-cream-200/20 to-transparent">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
-        <div className="max-w-2xl mb-12">
-          <p className="section-eyebrow mb-3">Sustainability &amp; ROI</p>
-          <h2 className="font-display text-4xl sm:text-5xl font-semibold text-forest-700 text-balance">
-            Less input, more yield, lighter footprint.
-          </h2>
-          <p className="mt-4 text-forest-700/60 text-pretty">
-            Live counters comparing NAMAA-managed application against blanket conventional
-            baselines — fertilizer, water, and carbon all tracked per hectare.
-          </p>
-        </div>
+ return (
+  <section
+    id="savings"
+    className="relative py-24 sm:py-32 bg-gradient-to-b from-transparent via-cream-200/20 to-transparent"
+  >
+    <div className="max-w-7xl mx-auto px-5 sm:px-8">
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          <StatCard icon={Sprout} label="Fertilizer saved" value={SAVINGS.fertilizerSavedKgHa} unit="kg/ha" baseline={`vs ${SAVINGS.fertilizerBaselineKgHa} kg/ha blanket`} color="#839958" sublabel="N-P-K precision dosing" />
-          <StatCard icon={Droplets} label="Water saved" value={SAVINGS.waterSavedM3} unit="m³" baseline={`vs ${SAVINGS.waterBaselineM3} m³ blanket`} color="#105666" sublabel="Rain-aware irrigation" />
-          <StatCard icon={Leaf} label="CO₂e reduced" value={SAVINGS.co2eReducedKg} unit="kg" baseline={`vs ${SAVINGS.co2eBaselineKg} kg baseline`} color="#3F7A5A" sublabel="Avoided N₂O emissions" />
-          <StatCard icon={DollarSign} label="Cost saved" value={SAVINGS.costSavedUsd} unit="USD" baseline="season to date" color="#D3968C" sublabel="Input + energy" />
-        </div>
+      <div className="max-w-2xl mb-12">
+        <p className="section-eyebrow mb-3">
+          Sustainability & ROI
+        </p>
 
-        {/* Yield uplift banner */}
-        <div className="mt-6 glass-card p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
-          <div className="grid place-items-center w-16 h-16 rounded-3xl bg-forest-600 text-cream-100 shrink-0">
-            <TrendingUp className="w-8 h-8" strokeWidth={1.8} />
-          </div>
-          <div className="flex-1 text-center sm:text-left">
-            <h3 className="font-display text-2xl font-semibold text-forest-700">
-              +{SAVINGS.yieldUpliftPct}% yield uplift this season
-            </h3>
-            <p className="text-sm text-forest-700/60 mt-1">
-              Measured against the same field's 3-year conventional average. Driven by
-              micro-topography-adjusted irrigation and rain-aware nutrient timing.
-            </p>
-          </div>
-          <div className="flex gap-6 text-center">
-            <div>
-              <p className="font-display text-2xl font-semibold text-moss-500">{Math.round(SAVINGS.fertilizerSavedKgHa / SAVINGS.fertilizerBaselineKgHa * 100)}%</p>
-              <p className="text-[10px] uppercase tracking-wide text-forest-700/40">fert cut</p>
-            </div>
-            <div>
-              <p className="font-display text-2xl font-semibold text-forest-600">{Math.round(SAVINGS.waterSavedM3 / SAVINGS.waterBaselineM3 * 100)}%</p>
-              <p className="text-[10px] uppercase tracking-wide text-forest-700/40">water cut</p>
-            </div>
-            <div>
-              <p className="font-display text-2xl font-semibold text-rose-400">{Math.round(SAVINGS.co2eReducedKg / SAVINGS.co2eBaselineKg * 100)}%</p>
-              <p className="text-[10px] uppercase tracking-wide text-forest-700/40">CO₂e cut</p>
-            </div>
-          </div>
-        </div>
+        <h2 className="font-display text-4xl sm:text-5xl font-semibold text-forest-700">
+          Water Saving Analytics
+        </h2>
+
+        <p className="mt-4 text-forest-700/60">
+          Water-saving calculations and sustainability metrics are currently
+          being integrated with the NAMAA decision engine and real field data.
+        </p>
       </div>
-    </section>
-  );
-}
+
+      <div className="glass-card p-10 text-center">
+
+        <div className="text-6xl mb-4">
+          🚧
+        </div>
+
+        <h3 className="font-display text-3xl font-semibold text-forest-700 mb-4">
+          Under Development
+        </h3>
+
+        <p className="text-forest-700/60 max-w-2xl mx-auto">
+          This module will calculate water savings, fertilizer optimization,
+          sustainability indicators, and irrigation efficiency using ETc,
+          weather observations, sensor readings, and historical irrigation
+          records.
+        </p>
+
+        <div className="mt-6 text-sm text-forest-700/40">
+          Based on FAO irrigation methodologies and crop-specific water demand models.
+        </div>
+
+      </div>
+    </div>
+  </section>
+);
