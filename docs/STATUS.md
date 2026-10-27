@@ -1,8 +1,13 @@
-# NAMAA - project status
-Paste this file at the start of any chat with an AI assistant. Last updated: 2026-10-24.
-"Done" = it exists in the project AND was checked. Everything else is listed as pending.
-How each line was checked is written in the Notes column. "Owner confirms" = the owner said it works; no numbers from a live run are recorded for it.
+NAMAA — Project Status & Technical Verification
 
+Project: NAMAA Smart Agriculture Platform
+Last updated: 2026-10-27
+
+Purpose of This Document
+
+This document records the implementation status, verification evidence, known limitations, and outstanding tasks of the NAMAA Smart Agriculture Platform.
+
+It distinguishes implemented features from features verified through software tests, live deployment, hardware testing, or expert evaluation. A feature is marked as verified only when supporting evidence is available.
 ## What NAMAA is
 Irrigation decision support for farmers. Sensors (moisture, soil temperature, EC) at several measurement points in a field -> one ESP32 -> Supabase.
 A rule-based decision engine decides, from the sensors, the weather, the crop and the soil. RAG + LLM only explain the engine's decision (they never decide).
