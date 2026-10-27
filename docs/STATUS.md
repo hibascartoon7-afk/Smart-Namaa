@@ -1,4 +1,4 @@
-##NAMAA — Project Status & Technical Verification
+## NAMAA — Project Status & Technical Verification
 
 Project: NAMAA Smart Agriculture Platform
 
