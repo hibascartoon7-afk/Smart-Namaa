@@ -1,0 +1,6 @@
+crop,nutrient,unit,low_below,method,source_id
+Tomato,p,ppm (mg/kg),15,Soil test Olsen (bicarbonate) top foot before planting; Low class; processing tomato California; not for pH < 6.5,UCIPM_TOMATO_SOIL
+Tomato,k,ppm (mg/kg),130,Soil test ammonium acetate top foot before planting; Low class; processing tomato California,UCIPM_TOMATO_SOIL
+Olives,n,% of leaf dry weight,1.4,July leaf analysis; Deficient column (sufficient 1.5-2.0; in between not classified),CDFA_OLIVE_LEAF
+Olives,p,% of leaf dry weight,0.1,July leaf analysis; Deficient column (sufficient 0.1-0.3),CDFA_OLIVE_LEAF
+Olives,k,% of leaf dry weight,0.4,July leaf analysis; Deficient column (sufficient above 0.8; in between not classified),CDFA_OLIVE_LEAF

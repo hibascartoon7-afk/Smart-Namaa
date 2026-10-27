@@ -1,0 +1,22 @@
+
+# These functions check who is calling by themselves (device token, user session or service key).
+[functions.decision-engine]
+enabled = true
+verify_jwt = false
+
+[functions.sensor-ingest]
+enabled = true
+verify_jwt = false
+
+[functions.device-provision]
+enabled = true
+verify_jwt = false
+
+[functions.namaa-chat]
+enabled = true
+verify_jwt = false
+
+# Called by pg_cron with its own secret (CRON_SECRET), not with a user token.
+[functions.scheduled-refresh]
+enabled = true
+verify_jwt = false

@@ -1,0 +1,12 @@
+name,n_pct,p2o5_pct,k2o_pct,basis,source_id
+Urea,46,,,total N dry basis (minimum),FAO_FERT_SPECS
+Ammonium sulphate,20,,,total N dry basis (minimum); also 23% S,FAO_FERT_SPECS
+Calcium ammonium nitrate (CAN),26,,,total N,FAO_FERT_SPECS
+Diammonium phosphate (DAP),18,46,,total N; P2O5 soluble in neutral ammonium citrate (minimum),FAO_FERT_SPECS
+Triple superphosphate (TSP),,46,,total P2O5 (minimum),FAO_FERT_SPECS
+Single superphosphate (SSP),,15.8,,water-soluble P2O5 (minimum); also 11% S,FAO_FERT_SPECS
+Potassium sulphate (SOP),,,50,K2O (minimum); also 17.5% S,FAO_FERT_SPECS
+NPK 15-15-15,15,15,15,N; P2O5 soluble in neutral ammonium citrate; water-soluble K2O (minimum),FAO_FERT_SPECS
+NPK 17-17-17,17,17,17,N; P2O5 soluble in neutral ammonium citrate; water-soluble K2O (minimum),FAO_FERT_SPECS
+NPK 19-19-19,19,19,19,N; P2O5 soluble in neutral ammonium citrate; water-soluble K2O (minimum),FAO_FERT_SPECS
+Potassium chloride (MOP) [NOT STORED],,,60,K2O water-soluble (minimum); left out on purpose: see the README,FAO_FERT_SPECS

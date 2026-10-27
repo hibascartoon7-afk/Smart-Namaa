@@ -1,0 +1,47 @@
+// Descriptive statistics of what the sensors of one environment report (plain arithmetic, no model).
+// "Spread" between sensors shows whether the field is uniform: a large spread means one average hides a dry or wet corner.
+
+export interface SensorSample {
+  pointId: string;
+  name: string;
+  value: number;
+}
+
+export type SpreadStats =
+  | { status: 'no_data' }
+  | {
+      status: 'ok';
+      count: number;
+      mean: number;
+      min: { value: number; name: string };
+      max: { value: number; name: string };
+      /** max - min, in the unit of the variable */
+      range: number;
+      /** sample standard deviation; null with a single sensor */
+      stdDev: number | null;
+    };
+
+export function spreadAcrossSensors(samples: SensorSample[]): SpreadStats {
+  const valid = samples.filter((s) => Number.isFinite(s.value));
+  if (valid.length === 0) return { status: 'no_data' };
+  const mean = valid.reduce((s, v) => s + v.value, 0) / valid.length;
+  let min = valid[0];
+  let max = valid[0];
+  for (const s of valid) {
+    if (s.value < min.value) min = s;
+    if (s.value > max.value) max = s;
+  }
+  const stdDev = valid.length > 1 ? Math.sqrt(valid.reduce((s, v) => s + (v.value - mean) ** 2, 0) / (valid.length - 1)) : null;
+  return { status: 'ok', count: valid.length, mean, min: { value: min.value, name: min.name }, max: { value: max.value, name: max.name }, range: max.value - min.value, stdDev };
+}
+
+export interface TimedValue {
+  measuredAt: string;
+  value: number;
+}
+
+/** change of one sensor between its first and last value in a window (null with fewer than 2 values) */
+export function changeOverWindow(values: TimedValue[]): number | null {
+  const v = values.filter((x) => Number.isFinite(x.value) && Number.isFinite(Date.parse(x.measuredAt))).sort((a, b) => Date.parse(a.measuredAt) - Date.parse(b.measuredAt));
+  return v.length < 2 ? null : v[v.length - 1].value - v[0].value;
+}

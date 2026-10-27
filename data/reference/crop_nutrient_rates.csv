@@ -1,0 +1,5 @@
+crop,nutrient,min_kg_nutrient_per_dunum,max_kg_nutrient_per_dunum,source_value,source_id
+Tomato,p (P2O5),,16.81,up to 150 lb P2O5/acre (soil testing Low),UCIPM_TOMATO_SOIL
+Tomato,k (K2O),,22.42,up to 200 lb K2O/acre (soil testing Low),UCIPM_TOMATO_SOIL
+Olives,n,4.48,11.21,40-100 lb N/acre per year,CDFA_OLIVE_LEAF
+Olives,k (K2O),11.21,16.81,200-300 lb K2SO4/acre fertigated x 50% K2O = 100-150 lb K2O/acre,CDFA_OLIVE_LEAF

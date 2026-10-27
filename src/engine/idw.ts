@@ -1,0 +1,77 @@
+// Estimating a value BETWEEN sensor points (no extra sensors needed) with inverse distance weighting (IDW).
+//
+//   z(x) = sum( w_i z_i ) / sum( w_i ),   w_i = 1 / d_i^power        (Shepard, 1968)
+//
+// Source: Shepard, D. (1968). A two-dimensional interpolation function for irregularly-spaced data.
+//   Proceedings of the 23rd ACM National Conference, 517-524.
+// The power is not a fixed constant: it is chosen from a short list by leave-one-out cross-validation, and the
+// cross-validation error (RMSE) is returned with every estimate so the user sees how far to trust it.
+// Honest limits: IDW only averages the sensors, so it can never give a value above the highest or below the lowest sensor,
+// and it cannot see anything that happens between the sensors (a leak, a wet patch). It needs at least 3 sensors.
+
+export interface GeoValue {
+  id: string;
+  lat: number;
+  lng: number;
+  value: number;
+}
+
+export type IdwResult =
+  | { status: 'ok'; value: number; power: number; looRmse: number; sensors: number; outsideSensorArea: boolean }
+  | { status: 'unavailable'; reason: 'too_few_points' };
+
+/** powers tried by cross-validation; 2 is Shepard's classic choice and is listed first so it wins ties */
+export const POWER_CANDIDATES = [2, 1, 3];
+const MIN_POINTS = 3;
+const EARTH_RADIUS_M = 6_371_008.8;
+
+export function haversineM(a: { lat: number; lng: number }, b: { lat: number; lng: number }): number {
+  const rad = (x: number) => (x * Math.PI) / 180;
+  const dLat = rad(b.lat - a.lat);
+  const dLng = rad(b.lng - a.lng);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dLng / 2) ** 2;
+  return 2 * EARTH_RADIUS_M * Math.asin(Math.min(1, Math.sqrt(h)));
+}
+
+export function idwAt(points: GeoValue[], target: { lat: number; lng: number }, power: number): number | null {
+  if (points.length === 0) return null;
+  let num = 0;
+  let den = 0;
+  for (const p of points) {
+    const d = haversineM(p, target);
+    if (d < 0.01) return p.value; // standing on a sensor: its own reading
+    const w = 1 / d ** power;
+    num += w * p.value;
+    den += w;
+  }
+  return den > 0 ? num / den : null;
+}
+
+export function looRmse(points: GeoValue[], power: number): number {
+  let sum = 0;
+  for (let i = 0; i < points.length; i++) {
+    const others = points.filter((_, j) => j !== i);
+    const est = idwAt(others, points[i], power) as number;
+    sum += (est - points[i].value) ** 2;
+  }
+  return Math.sqrt(sum / points.length);
+}
+
+export function estimateBetweenSensors(points: GeoValue[], target: { lat: number; lng: number }): IdwResult {
+  const valid = points.filter((p) => [p.lat, p.lng, p.value].every((x) => Number.isFinite(x)));
+  if (valid.length < MIN_POINTS) return { status: 'unavailable', reason: 'too_few_points' };
+
+  let best = { power: POWER_CANDIDATES[0], rmse: looRmse(valid, POWER_CANDIDATES[0]) };
+  for (const power of POWER_CANDIDATES.slice(1)) {
+    const rmse = looRmse(valid, power);
+    if (rmse < best.rmse) best = { power, rmse };
+  }
+
+  const lats = valid.map((p) => p.lat);
+  const lngs = valid.map((p) => p.lng);
+  const outside =
+    target.lat < Math.min(...lats) || target.lat > Math.max(...lats) || target.lng < Math.min(...lngs) || target.lng > Math.max(...lngs);
+
+  const value = idwAt(valid, target, best.power) as number;
+  return { status: 'ok', value, power: best.power, looRmse: best.rmse, sensors: valid.length, outsideSensorArea: outside };
+}

@@ -1,62 +1,56 @@
 import { describe, it, expect } from 'vitest';
-import { defaultPair, validPair, middleZoneValues, middleZoneMarker } from '../src/lib/middle-zone';
-import { projectPoints, projectionBounds, projectLatLng, type Reading, type SensorPoint } from '../src/lib/field-math';
+import { middleZone, midpoint } from '../src/engine/middle-zone';
+import { idwAt } from '../src/engine/idw';
 
-const TZ = 'Asia/Hebron';
-const DAY = '2026-10-20';
-const P = (id: string, name: string, lat: number | null, lng: number | null): SensorPoint => ({ id, point_name: name, latitude: lat, longitude: lng });
-const R = (id: string, at: string, moisture: number | null, status = 'measured', temp: number | null = null): Reading => ({
-  sensor_point_id: id, measured_at: at, moisture, soil_temperature: temp, ec: null,
-  moisture_status: status, soil_temperature_status: temp === null ? 'not_measured' : 'measured', ec_status: 'not_measured',
-});
-const two = [P('a', 'Left', 32.2210, 35.2540), P('b', 'Right', 32.2214, 35.2548)];
-const three = [...two, P('c', 'Back', 32.2220, 35.2544)];
+describe('middle zone between two sensors', () => {
+  it('is the mean of the two readings, with both readings and their difference', () => {
+    const z = middleZone({ name: 'A', value: 20 }, { name: 'B', value: 30 });
+    expect(z).toEqual({ status: 'ok', value: 25, low: { name: 'A', value: 20 }, high: { name: 'B', value: 30 }, difference: 10 });
+  });
 
-describe('which two sensor points', () => {
-  it('needs two points; prefers the points that have coordinates', () => {
-    expect(defaultPair([P('a', 'A', null, null)])).toBeNull();
-    expect(defaultPair([P('a', 'A', null, null), P('b', 'B', 32.1, 35.1), P('c', 'C', 32.2, 35.2)])).toEqual(['b', 'c']);
-    expect(defaultPair([P('a', 'A', null, null), P('b', 'B', null, null)])).toEqual(['a', 'b']);
+  it('does not depend on the order of the two sensors', () => {
+    expect(middleZone({ name: 'B', value: 30 }, { name: 'A', value: 20 })).toEqual(middleZone({ name: 'A', value: 20 }, { name: 'B', value: 30 }));
   });
-  it('keeps a valid choice, falls back to the default when a point was removed or both are the same', () => {
-    expect(validPair(three, ['a', 'c'])).toEqual(['a', 'c']);
-    expect(validPair(two, ['a', 'c'])).toEqual(['a', 'b']);
-    expect(validPair(three, ['a', 'a'])).toEqual(['a', 'b']);
-  });
-});
 
-describe('middle zone values on the screen', () => {
-  it('mean of the two latest readings of TODAY, per variable', () => {
-    const rows = [
-      R('a', '2026-10-20T06:00:00Z', 10), R('a', '2026-10-20T08:00:00Z', 20, 'measured', 22),
-      R('b', '2026-10-20T07:00:00Z', 30, 'measured', 26),
-      R('b', '2026-10-19T07:00:00Z', 99), // yesterday: ignored
-    ];
-    const v = middleZoneValues(two, rows, ['a', 'b'], DAY, TZ);
-    expect(v.moisture).toMatchObject({ status: 'ok', value: 25, difference: 10 });
-    expect(v.soil_temperature).toMatchObject({ status: 'ok', value: 24 });
-    expect(v.ec).toMatchObject({ status: 'unavailable', missing: ['Left', 'Right'] }); // nobody measured EC
+  it('is never above the higher or below the lower reading', () => {
+    for (const [a, b] of [[10, 12.5], [0, 55], [-3, 4], [40.1, 40.1]]) {
+      const z = middleZone({ name: 'A', value: a }, { name: 'B', value: b });
+      if (z.status !== 'ok') throw new Error('expected an estimate');
+      expect(z.value).toBeGreaterThanOrEqual(Math.min(a, b));
+      expect(z.value).toBeLessThanOrEqual(Math.max(a, b));
+    }
   });
-  it('a flagged or missing reading means no estimate (never 0, never the other sensor)', () => {
-    const rows = [R('a', '2026-10-20T08:00:00Z', 20), R('b', '2026-10-20T08:00:00Z', 55, 'suspect')];
-    expect(middleZoneValues(two, rows, ['a', 'b'], DAY, TZ).moisture).toEqual({ status: 'unavailable', reason: 'reading_missing', missing: ['Right'] });
-  });
-});
 
-describe('middle zone on the map', () => {
-  it('sits halfway between the two drawn points and is drawn with the same projection as the points', () => {
-    const m = middleZoneMarker(three, ['a', 'b'])!;
-    expect(m.mid.x).toBeCloseTo((m.from.x + m.to.x) / 2, 9);
-    expect(m.mid.y).toBeCloseTo((m.from.y + m.to.y) / 2, 9);
-    const placed = projectPoints(three).placed;
-    expect(m.from).toEqual({ x: placed.find((p) => p.id === 'a')!.x, y: placed.find((p) => p.id === 'a')!.y });
-    expect(m.to).toEqual({ x: placed.find((p) => p.id === 'b')!.x, y: placed.find((p) => p.id === 'b')!.y });
+  it('equal readings: the same value, difference 0', () => {
+    expect(middleZone({ name: 'A', value: 33 }, { name: 'B', value: 33 })).toMatchObject({ status: 'ok', value: 33, difference: 0 });
   });
-  it('is not drawn when one of the two points has no coordinates', () => {
-    expect(middleZoneMarker([P('a', 'A', 32.1, 35.1), P('b', 'B', null, null), P('c', 'C', 32.2, 35.2)], ['a', 'b'])).toBeNull();
+
+  it('a reading of 0 is a real reading, not a missing one', () => {
+    expect(middleZone({ name: 'A', value: 0 }, { name: 'B', value: 30 })).toMatchObject({ status: 'ok', value: 15 });
   });
-  it('projectLatLng agrees with projectPoints', () => {
-    const b = projectionBounds(three)!;
-    expect(projectLatLng(b, 32.2214, 35.2548)).toEqual({ x: projectPoints(three).placed[1].x, y: projectPoints(three).placed[1].y });
+
+  it('a missing reading gives NO estimate: it is never replaced by 0 or by the other sensor', () => {
+    expect(middleZone({ name: 'A', value: null }, { name: 'B', value: 30 })).toEqual({ status: 'unavailable', reason: 'reading_missing', missing: ['A'] });
+    expect(middleZone({ name: 'A', value: 20 }, { name: 'B', value: null })).toEqual({ status: 'unavailable', reason: 'reading_missing', missing: ['B'] });
+    expect(middleZone({ name: 'A', value: null }, { name: 'B', value: null })).toEqual({ status: 'unavailable', reason: 'reading_missing', missing: ['A', 'B'] });
+  });
+
+  it('NaN and infinity count as missing', () => {
+    expect(middleZone({ name: 'A', value: Number.NaN }, { name: 'B', value: 30 })).toMatchObject({ status: 'unavailable', missing: ['A'] });
+    expect(middleZone({ name: 'A', value: 10 }, { name: 'B', value: Number.POSITIVE_INFINITY })).toMatchObject({ status: 'unavailable', missing: ['B'] });
+  });
+
+  it('matches inverse distance weighting halfway between the two sensors, to far better than a sensor can resolve (the claim in middle-zone.ts)', () => {
+    const a = { id: 'a', lat: 32.2211, lng: 35.2544, value: 18.4 };
+    const b = { id: 'b', lat: 32.2219, lng: 35.2561, value: 31.7 };
+    const mid = midpoint(a, b);
+    const z = middleZone({ name: 'A', value: a.value }, { name: 'B', value: b.value });
+    if (z.status !== 'ok') throw new Error('expected an estimate');
+    // the coordinate average is not exactly equidistant on the sphere: the difference is about 1e-5 on a 13-point gap
+    for (const power of [1, 2, 3]) expect(Math.abs((idwAt([a, b], mid, power) as number) - z.value)).toBeLessThan(0.001);
+  });
+
+  it('midpoint: halfway between the two coordinates', () => {
+    expect(midpoint({ lat: 32, lng: 35 }, { lat: 33, lng: 36 })).toEqual({ lat: 32.5, lng: 35.5 });
   });
 });

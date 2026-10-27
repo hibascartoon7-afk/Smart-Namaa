@@ -1,0 +1,10 @@
+soil_type,theta_fc_min,theta_fc_max,theta_wp_min,theta_wp_max,available_min,available_max,rew_mm_min,rew_mm_max,tew_mm_min,tew_mm_max,note
+Sand,0.07,0.17,0.02,0.07,0.05,0.11,2,7,6,12,
+Loamy sand,0.11,0.19,0.03,0.10,0.06,0.12,4,8,9,14,
+Sandy loam,0.18,0.28,0.06,0.16,0.11,0.15,6,10,15,20,
+Loam,0.20,0.30,0.07,0.17,0.13,0.18,8,10,16,22,
+Silt loam,0.22,0.36,0.09,0.21,0.13,0.19,8,11,18,25,
+Silt,0.28,0.36,0.12,0.22,0.16,0.20,8,11,22,26,
+Silt clay loam,0.30,0.37,0.17,0.24,0.13,0.18,8,11,22,27,
+Silty clay,0.30,0.42,0.17,0.29,0.13,0.19,8,12,22,28,"the web page prints the lower theta_FC as '0-30'; read as 0.30 (consistent with 0.30 - 0.17 = 0.13). Check against the printed book"
+Clay,0.32,0.40,0.20,0.24,0.12,0.20,8,12,22,29,

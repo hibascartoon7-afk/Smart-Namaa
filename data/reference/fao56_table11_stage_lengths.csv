@@ -1,0 +1,168 @@
+section,crop,l_ini_days,l_dev_days,l_mid_days,l_late_days,total_days,plant_date,region,note,used_by_namaa,namaa_crop_name,reason
+a. Small Vegetables,Broccoli,35,45,40,15,135,Sept,"Calif. Desert, USA",,no,,not a Mediterranean row
+a. Small Vegetables,Cabbage,40,60,50,15,165,Sept,"Calif. Desert, USA",,no,,not a Mediterranean row
+a. Small Vegetables,Carrots,20,30,50/30,20,100,Oct/Jan,Arid climate,,no,,not a Mediterranean row
+a. Small Vegetables,Carrots,30,40,60,20,150,Feb/Mar,Mediterranean,,yes,Carrots,the only Mediterranean row of this crop
+a. Small Vegetables,Carrots,30,50,90,30,200,Oct,"Calif. Desert, USA",,no,,not a Mediterranean row
+a. Small Vegetables,Cauliflower,35,50,40,15,140,Sept,"Calif. Desert, USA",,no,,not a Mediterranean row
+a. Small Vegetables,Celery,25,40,95,20,180,Oct,(Semi) Arid,,no,,not a Mediterranean row
+a. Small Vegetables,Celery,25,40,45,15,125,April,Mediterranean,,yes,Celery,the only Mediterranean row of this crop
+a. Small Vegetables,Celery,30,55,105,20,210,Jan,(Semi) Arid,,no,,not a Mediterranean row
+a. Small Vegetables,Crucifers,20,30,20,10,80,April,Mediterranean,"footnote 1: cabbage, cauliflower, broccoli, Brussel sprouts",no,,crop is not in the app crop list
+a. Small Vegetables,Crucifers,25,35,25,10,95,February,Mediterranean,footnote 1,no,,crop is not in the app crop list
+a. Small Vegetables,Crucifers,30,35,90,40,195,Oct/Nov,Mediterranean,footnote 1,no,,crop is not in the app crop list
+a. Small Vegetables,Lettuce,20,30,15,10,75,April,Mediterranean,,no,,several Mediterranean rows: the owner must choose the planting season
+a. Small Vegetables,Lettuce,30,40,25,10,105,Nov/Jan,Mediterranean,,no,,several Mediterranean rows: the owner must choose the planting season
+a. Small Vegetables,Lettuce,25,35,30,10,100,Oct/Nov,Arid Region,,no,,not a Mediterranean row
+a. Small Vegetables,Lettuce,35,50,45,10,140,Feb,Mediterranean,,no,,several Mediterranean rows: the owner must choose the planting season
+a. Small Vegetables,Onion (dry),15,25,70,40,150,April,Mediterranean,,yes,Onions - dry,the only Mediterranean row of this crop
+a. Small Vegetables,Onion (dry),20,35,110,45,210,Oct; Jan.,Arid Region; Calif.,,no,,not a Mediterranean row
+a. Small Vegetables,Onion (green),25,30,10,5,70,April/May,Mediterranean,,yes,Onions - green,the only Mediterranean row of this crop
+a. Small Vegetables,Onion (green),20,45,20,10,95,October,Arid Region,,no,,not a Mediterranean row
+a. Small Vegetables,Onion (green),30,55,55,40,180,March,"Calif., USA",,no,,not a Mediterranean row
+a. Small Vegetables,Onion (seed),20,45,165,45,275,Sept,"Calif. Desert, USA",,no,,not a Mediterranean row
+a. Small Vegetables,Spinach,20,20,15/25,5,60/70,Apr; Sep/Oct,Mediterranean,,no,,the row has two values or two planting dates in one cell: the owner must choose
+a. Small Vegetables,Spinach,20,30,40,10,100,November,Arid Region,,no,,not a Mediterranean row
+a. Small Vegetables,Radish,5,10,15,5,35,Mar/Apr,Medit.; Europe,,no,,crop is not in the app crop list
+a. Small Vegetables,Radish,10,10,15,5,40,Winter,Arid Region,,no,,not a Mediterranean row
+b. Vegetables - Solanum Family,Egg plant,30,40,40,20,130,October,Arid Region,"total printed as ""130\1"" on the web page",no,,not a Mediterranean row
+b. Vegetables - Solanum Family,Egg plant,30,45,40,25,40,May/June,Mediterranean,total printed as 40 on the web page; the four stage lengths add up to 140,no,,the printed total does not match the four lengths: check the book before using this row
+b. Vegetables - Solanum Family,Sweet peppers (bell),25/30,35,40,20,125,April/June,Europe and Medit.,,no,,the row has two values or two planting dates in one cell: the owner must choose
+b. Vegetables - Solanum Family,Sweet peppers (bell),30,40,110,30,210,October,Arid Region,,no,,not a Mediterranean row
+b. Vegetables - Solanum Family,Tomato,30,40,40,25,135,January,Arid Region,,no,,not a Mediterranean row
+b. Vegetables - Solanum Family,Tomato,35,40,50,30,155,Apr/May,"Calif., USA",,no,,not a Mediterranean row
+b. Vegetables - Solanum Family,Tomato,25,40,60,30,155,Jan,"Calif. Desert, USA",,no,,not a Mediterranean row
+b. Vegetables - Solanum Family,Tomato,35,45,70,30,180,Oct/Nov,Arid Region,,no,,not a Mediterranean row
+b. Vegetables - Solanum Family,Tomato,30,40,45,30,145,April/May,Mediterranean,,yes,Tomato,the only Mediterranean row of this crop
+c. Vegetables - Cucumber Family,Cantaloupe,30,45,35,10,120,Jan,"Calif., USA",,no,,not a Mediterranean row
+c. Vegetables - Cucumber Family,Cantaloupe,10,60,25,25,120,Aug,"Calif., USA",,no,,not a Mediterranean row
+c. Vegetables - Cucumber Family,Cucumber,20,30,40,15,105,June/Aug,Arid Region,,no,,not a Mediterranean row
+c. Vegetables - Cucumber Family,Cucumber,25,35,50,20,130,Nov; Feb,Arid Region,,no,,not a Mediterranean row
+c. Vegetables - Cucumber Family,"Pumpkin, Winter squash",20,30,30,20,100,"Mar, Aug",Mediterranean,,yes,"Pumpkin, Winter Squash",the only Mediterranean row of this crop
+c. Vegetables - Cucumber Family,"Pumpkin, Winter squash",25,35,35,25,120,June,Europe,,no,,not a Mediterranean row
+c. Vegetables - Cucumber Family,"Squash, Zucchini",25,35,25,15,100,Apr; Dec.,Medit.; Arid Reg.,,no,,several Mediterranean rows: the owner must choose the planting season
+c. Vegetables - Cucumber Family,"Squash, Zucchini",20,30,25,15,90,May/June,Medit.; Europe,,no,,several Mediterranean rows: the owner must choose the planting season
+c. Vegetables - Cucumber Family,Sweet melons,25,35,40,20,120,May,Mediterranean,,yes,Sweet Melons,the only Mediterranean row of this crop
+c. Vegetables - Cucumber Family,Sweet melons,30,30,50,30,140,March,"Calif., USA",,no,,not a Mediterranean row
+c. Vegetables - Cucumber Family,Sweet melons,15,40,65,15,135,Aug,"Calif. Desert, USA",,no,,not a Mediterranean row
+c. Vegetables - Cucumber Family,Sweet melons,30,45,65,20,160,Dec/Jan,Arid Region,,no,,not a Mediterranean row
+c. Vegetables - Cucumber Family,Water melons,20,30,30,30,110,April,Italy,,no,,not a Mediterranean row
+c. Vegetables - Cucumber Family,Water melons,10,20,20,30,80,Mat/Aug,Near East (desert),"plant date printed as ""Mat/Aug"" on the web page",no,,not a Mediterranean row
+d. Roots and Tubers,"Beets, table",15,25,20,10,70,Apr/May,Mediterranean,,no,,several Mediterranean rows: the owner must choose the planting season
+d. Roots and Tubers,"Beets, table",25,30,25,10,90,Feb/Mar,Mediterranean & Arid,,no,,several Mediterranean rows: the owner must choose the planting season
+d. Roots and Tubers,Cassava: year 1,20,40,90,60,210,Rainy season,Tropical regions,,no,,not a Mediterranean row
+d. Roots and Tubers,Cassava: year 2,150,40,110,60,360,Rainy season,Tropical regions,,no,,not a Mediterranean row
+d. Roots and Tubers,Potato,25,30,30/45,30,115/130,Jan/Nov,(Semi) Arid Climate,,no,,not a Mediterranean row
+d. Roots and Tubers,Potato,25,30,45,30,130,May,Continental Climate,,no,,not a Mediterranean row
+d. Roots and Tubers,Potato,30,35,50,30,145,April,Europe,,no,,not a Mediterranean row
+d. Roots and Tubers,Potato,45,30,70,20,165,Apr/May,"Idaho, USA",,no,,not a Mediterranean row
+d. Roots and Tubers,Potato,30,35,50,25,140,Dec,"Calif. Desert, USA",,no,,not a Mediterranean row
+d. Roots and Tubers,Sweet potato,20,30,60,40,150,April,Mediterranean,,yes,Sweet Potato,the only Mediterranean row of this crop
+d. Roots and Tubers,Sweet potato,15,30,50,30,125,Rainy season,Tropical regions,,no,,not a Mediterranean row
+d. Roots and Tubers,Sugarbeet,30,45,90,15,180,March,"Calif., USA",,no,,not a Mediterranean row
+d. Roots and Tubers,Sugarbeet,25,30,90,10,155,June,"Calif., USA",,no,,not a Mediterranean row
+d. Roots and Tubers,Sugarbeet,25,65,100,65,255,Sept,"Calif. Desert, USA",,no,,not a Mediterranean row
+d. Roots and Tubers,Sugarbeet,50,40,50,40,180,April,"Idaho, USA",,no,,not a Mediterranean row
+d. Roots and Tubers,Sugarbeet,25,35,50,50,160,May,Mediterranean,,no,,several Mediterranean rows: the owner must choose the planting season
+d. Roots and Tubers,Sugarbeet,45,75,80,30,230,November,Mediterranean,,no,,several Mediterranean rows: the owner must choose the planting season
+d. Roots and Tubers,Sugarbeet,35,60,70,40,205,November,Arid Regions,,no,,not a Mediterranean row
+e. Legumes,Beans (green),20,30,30,10,90,Feb/Mar,"Calif., Mediterranean",,yes,"Beans, green",the only Mediterranean row of this crop
+e. Legumes,Beans (green),15,25,25,10,75,Aug/Sep,"Calif., Egypt, Lebanon",,no,,not a Mediterranean row
+e. Legumes,Beans (dry),20,30,40,20,110,May/June,Continental Climates,,no,,not a Mediterranean row
+e. Legumes,Beans (dry),15,25,35,20,95,June,"Pakistan, Calif.",,no,,not a Mediterranean row
+e. Legumes,Beans (dry),25,25,30,20,100,June,"Idaho, USA",,no,,not a Mediterranean row
+e. Legumes,"Faba bean, broad bean",15,25,35,15,90,May,Europe,,no,,not a Mediterranean row
+e. Legumes,"Faba bean, broad bean",20,30,35,15,100,Mar/Apr,Mediterranean,,no,,the app has several variants of this crop and the row does not say which one it is for
+e. Legumes,"Faba bean, broad bean (dry)",90,45,40,60,235,Nov,Europe,,no,,not a Mediterranean row
+e. Legumes,"Faba bean, broad bean (green)",90,45,40,0,175,Nov,Europe,,no,,not a Mediterranean row
+e. Legumes,"Green gram, cowpeas",20,30,30,20,110,March,Mediterranean,,no,,the printed total does not match the four lengths: check the book before using this row
+e. Legumes,Groundnut,25,35,45,25,130,,Dry West Africa,"plant date: the web page prints ""season"" on the next line",no,,not a Mediterranean row
+e. Legumes,Groundnut,35,35,35,35,140,,High Latitudes,plant date not printed,no,,not a Mediterranean row
+e. Legumes,Groundnut,35,45,35,25,140,May/June,Mediterranean,"the web page prints ""May May/June""",yes,Groundnut (Peanut),the only Mediterranean row of this crop
+e. Legumes,Lentil,20,30,60,40,150,April,Europe,,no,,not a Mediterranean row
+e. Legumes,Lentil,25,35,70,40,170,Oct/Nov,Arid Region,,no,,not a Mediterranean row
+e. Legumes,Peas,15,25,35,15,90,May,Europe,,no,,not a Mediterranean row
+e. Legumes,Peas,20,30,35,15,100,Mar/Apr,Mediterranean,,no,,the app has several variants of this crop and the row does not say which one it is for
+e. Legumes,Peas,35,25,30,20,110,April,"Idaho, USA",,no,,not a Mediterranean row
+e. Legumes,Soybeans,15,15,40,15,85,Dec,Tropics,,no,,not a Mediterranean row
+e. Legumes,Soybeans,20,30/35,60,25,140,May,Central USA,,no,,not a Mediterranean row
+e. Legumes,Soybeans,20,25,75,30,150,June,Japan,,no,,not a Mediterranean row
+f. Perennial Vegetables,Artichoke,40,40,250,30,360,Apr (1st yr),California,,no,,not a Mediterranean row
+f. Perennial Vegetables,Artichoke,20,25,250,30,325,May (2nd yr),(cut in May),,no,,not a Mediterranean row
+f. Perennial Vegetables,Asparagus,50,30,100,50,230,Feb,Warm Winter,,no,,not a Mediterranean row
+f. Perennial Vegetables,Asparagus,90,30,200,45,365,Feb,Mediterranean,,no,,perennial: stage lengths restart every season; the engine counts days from one planting date
+g. Fibre Crops,Cotton,30,50,60,55,195,Mar-May,Egypt; Pakistan; Calif.,,no,,not a Mediterranean row
+g. Fibre Crops,Cotton,45,90,45,45,225,Mar,"Calif. Desert, USA",,no,,not a Mediterranean row
+g. Fibre Crops,Cotton,30,50,60,55,195,Sept,Yemen,,no,,not a Mediterranean row
+g. Fibre Crops,Cotton,30,50,55,45,180,April,Texas,,no,,not a Mediterranean row
+g. Fibre Crops,Flax,25,35,50,40,150,April,Europe,,no,,not a Mediterranean row
+g. Fibre Crops,Flax,30,40,100,50,220,October,Arizona,,no,,not a Mediterranean row
+h. Oil Crops,Castor beans,25,40,65,50,180,March,(Semi) Arid Climates,,no,,not a Mediterranean row
+h. Oil Crops,Castor beans,20,40,50,25,135,Nov.,Indonesia,,no,,not a Mediterranean row
+h. Oil Crops,Safflower,20,35,45,25,125,April,"California, USA",,no,,not a Mediterranean row
+h. Oil Crops,Safflower,25,35,55,30,145,Mar,High Latitudes,,no,,not a Mediterranean row
+h. Oil Crops,Safflower,35,55,60,40,190,Oct/Nov,Arid Region,,no,,not a Mediterranean row
+h. Oil Crops,Sesame,20,30,40,20,100,June,China,,no,,not a Mediterranean row
+h. Oil Crops,Sunflower,25,35,45,25,130,April/May,Medit.; California,,yes,Sunflower,the only Mediterranean row of this crop
+i. Cereals,Barley/Oats/Wheat,15,25,50,30,120,November,Central India,,no,,not a Mediterranean row
+i. Cereals,Barley/Oats/Wheat,20,25,60,30,135,March/Apr,35-45 °L,,no,,not a Mediterranean row
+i. Cereals,Barley/Oats/Wheat,15,30,65,40,150,July,East Africa,,no,,not a Mediterranean row
+i. Cereals,Barley/Oats/Wheat,40,30,40,20,130,Apr,,plant region not printed on the web page,no,,not a Mediterranean row
+i. Cereals,Barley/Oats/Wheat,40,60,60,40,200,Nov,,plant region not printed on the web page,no,,not a Mediterranean row
+i. Cereals,Barley/Oats/Wheat,20,50,60,30,160,Dec,"Calif. Desert, USA",,no,,not a Mediterranean row
+i. Cereals,Winter Wheat,20,60,70,30,180,December,"Calif., USA","web page prints ""202 602"": 20 and 60 with footnote 2 (periods lengthen in frozen climates)",no,,not a Mediterranean row
+i. Cereals,Winter Wheat,30,140,40,30,240,November,Mediterranean,,no,,the app has several variants of this crop and the row does not say which one it is for
+i. Cereals,Winter Wheat,160,75,75,25,335,October,"Idaho, USA",,no,,not a Mediterranean row
+i. Cereals,Grains (small),20,30,60,40,150,April,Mediterranean,,no,,crop is not in the app crop list
+i. Cereals,Grains (small),25,35,65,40,165,Oct/Nov,Pakistan; Arid Reg.,,no,,not a Mediterranean row
+i. Cereals,Maize (grain),30,50,60,40,180,April,East Africa (alt.),,no,,not a Mediterranean row
+i. Cereals,Maize (grain),25,40,45,30,140,Dec/Jan,Arid Climate,,no,,not a Mediterranean row
+i. Cereals,Maize (grain),20,35,40,30,125,June,Nigeria (humid),,no,,not a Mediterranean row
+i. Cereals,Maize (grain),20,35,40,30,125,October,"India (dry, cool)",,no,,not a Mediterranean row
+i. Cereals,Maize (grain),30,40,50,30,150,April,"Spain (spr, sum.); Calif.",,no,,not a Mediterranean row
+i. Cereals,Maize (grain),30,40,50,50,170,April,"Idaho, USA",,no,,not a Mediterranean row
+i. Cereals,Maize (sweet),20,20,30,10,80,March,Philippines,,no,,not a Mediterranean row
+i. Cereals,Maize (sweet),20,25,25,10,80,May/June,Mediterranean,,yes,"Maize, Sweet (sweet corn)",the only Mediterranean row of this crop
+i. Cereals,Maize (sweet),20,30,50/30,10,90,Oct/Dec,Arid Climate,,no,,not a Mediterranean row
+i. Cereals,Maize (sweet),30,30,30,10,110,April,"Idaho, USA","web page prints ""103"": 10 with footnote 3",no,,not a Mediterranean row
+i. Cereals,Maize (sweet),20,40,70,10,140,Jan,"Calif. Desert, USA",,no,,not a Mediterranean row
+i. Cereals,Millet,15,25,40,25,105,June,Pakistan,,no,,not a Mediterranean row
+i. Cereals,Millet,20,30,55,35,140,April,Central USA,,no,,not a Mediterranean row
+i. Cereals,Sorghum,20,35,40,30,130,May/June,"USA, Pakis., Med.",,no,,the app has several variants of this crop and the row does not say which one it is for
+i. Cereals,Sorghum,20,35,45,30,140,Mar/April,Arid Region,,no,,not a Mediterranean row
+i. Cereals,Rice,30,30,60,30,150,Dec; May,Tropics; Mediterranean,,no,,the row has two values or two planting dates in one cell: the owner must choose
+i. Cereals,Rice,30,30,80,40,180,May,Tropics,"web page prints ""30."" for the development length",no,,not a Mediterranean row
+j. Forages,"Alfalfa, total season",10,30,var.,var.,var.,last -4°C in spring until first -4°C in fall,,"footnote 4; web page prints ""4 10 30 var. var. var.""",no,,not a Mediterranean row
+j. Forages,"Alfalfa, 1st cutting cycle",10,20,20,10,60,Jan; Apr (last -4°C),"Calif., USA",,no,,not a Mediterranean row
+j. Forages,"Alfalfa, 1st cutting cycle",10,30,25,10,75,,"Idaho, USA",,no,,not a Mediterranean row
+j. Forages,"Alfalfa, other cutting cycles",5,10,10,5,30,Mar,"Calif., USA",,no,,not a Mediterranean row
+j. Forages,"Alfalfa, other cutting cycles",5,20,10,10,45,Jun,"Idaho, USA",,no,,not a Mediterranean row
+j. Forages,Bermuda for seed,10,25,35,35,105,March,"Calif. Desert, USA",,no,,not a Mediterranean row
+j. Forages,Bermuda for hay (several cuttings),10,15,75,35,135,---,"Calif. Desert, USA",,no,,not a Mediterranean row
+j. Forages,Grass Pasture,10,20,--,--,--,7 days before last -4°C in spring until 7 days after first -4°C in fall,,footnote 4,no,,not a Mediterranean row
+j. Forages,"Sudan, 1st cutting cycle",25,25,15,10,75,Apr,"Calif. Desert, USA",,no,,not a Mediterranean row
+j. Forages,"Sudan, other cutting cycles",3,15,12,7,37,June,"Calif. Desert, USA",,no,,not a Mediterranean row
+k. Sugar Cane,"Sugarcane, virgin",35,60,190,120,405,,Low Latitudes,,no,,not a Mediterranean row
+k. Sugar Cane,"Sugarcane, virgin",50,70,220,140,480,,Tropics,,no,,not a Mediterranean row
+k. Sugar Cane,"Sugarcane, virgin",75,105,330,210,720,,"Hawaii, USA",,no,,not a Mediterranean row
+k. Sugar Cane,"Sugarcane, ratoon",25,70,135,50,280,,Low Latitudes,,no,,not a Mediterranean row
+k. Sugar Cane,"Sugarcane, ratoon",30,50,180,60,320,,Tropics,,no,,not a Mediterranean row
+k. Sugar Cane,"Sugarcane, ratoon",35,105,210,70,420,,"Hawaii, USA",,no,,not a Mediterranean row
+l. Tropical Fruits and Trees,"Banana, 1st yr",120,90,120,60,390,Mar,Mediterranean,,no,,perennial: stage lengths restart every season; the engine counts days from one planting date
+l. Tropical Fruits and Trees,"Banana, 2nd yr",120,60,180,5,365,Feb,Mediterranean,,no,,perennial: stage lengths restart every season; the engine counts days from one planting date
+l. Tropical Fruits and Trees,Pineapple,60,120,600,10,790,,"Hawaii, USA",,no,,not a Mediterranean row
+m. Grapes and Berries,Grapes,20,40,120,60,240,April,Low Latitudes,,no,,not a Mediterranean row
+m. Grapes and Berries,Grapes,20,50,75,60,205,Mar,"Calif., USA",,no,,not a Mediterranean row
+m. Grapes and Berries,Grapes,20,50,90,20,180,May,High Latitudes,,no,,not a Mediterranean row
+m. Grapes and Berries,Grapes,30,60,40,80,210,April,Mid Latitudes (wine),,no,,not a Mediterranean row
+m. Grapes and Berries,Hops,25,40,80,10,155,April,"Idaho, USA",,no,,not a Mediterranean row
+n. Fruit Trees,Citrus,60,90,120,95,365,Jan,Mediterranean,,no,,perennial: stage lengths restart every season; the engine counts days from one planting date
+n. Fruit Trees,Deciduous Orchard,20,70,90,30,210,March,High Latitudes,,no,,not a Mediterranean row
+n. Fruit Trees,Deciduous Orchard,20,70,120,60,270,March,Low Latitudes,,no,,not a Mediterranean row
+n. Fruit Trees,Deciduous Orchard,30,50,130,30,240,March,"Calif., USA",,no,,not a Mediterranean row
+n. Fruit Trees,Olives,30,90,60,90,270,March,Mediterranean,"web page prints ""*60*"" and ""2705"": footnote 5 (olive trees gain new leaves in March)",yes,Olives (40 to 60% ground coverage by canopy),the only Mediterranean row of this crop
+n. Fruit Trees,Pistachios,20,60,30,40,150,Feb,Mediterranean,,no,,perennial: stage lengths restart every season; the engine counts days from one planting date
+n. Fruit Trees,Walnuts,20,10,130,30,190,April,"Utah, USA",,no,,not a Mediterranean row
+o. Wetlands - Temperate Climate,"Wetlands (Cattails, Bulrush)",10,30,80,20,140,May,"Utah, USA; killing frost",,no,,not a Mediterranean row
+o. Wetlands - Temperate Climate,"Wetlands (Cattails, Bulrush)",180,60,90,35,365,November,"Florida, USA",,no,,not a Mediterranean row
+o. Wetlands - Temperate Climate,Wetlands (short veg.),180,60,90,35,365,November,frost-free climate,,no,,not a Mediterranean row
