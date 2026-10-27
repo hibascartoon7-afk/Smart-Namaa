@@ -56,10 +56,10 @@
     @apply bg-gradient-to-br from-forest-700 via-forest-600 to-moss-500 bg-clip-text text-transparent;
   }
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-forest-600 px-6 py-3 text-cream-100 font-semibold shadow-lg shadow-forest-700/25 transition-all duration-300 hover:bg-forest-700 hover:shadow-xl hover:shadow-forest-700/30 hover:-translate-y-0.5 active:translate-y-0;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-forest-600 px-6 py-3 text-cream-100 font-semibold shadow-lg shadow-forest-700/25 transition-all duration-300 hover:bg-moss-600 hover:shadow-xl hover:shadow-moss-600/30 hover:-translate-y-0.5 active:translate-y-0;
   }
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-forest-600/25 bg-white/40 px-6 py-3 font-semibold text-forest-700 transition-all duration-300 hover:bg-white/70 hover:border-forest-600/40;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-forest-600/25 bg-white/40 px-6 py-3 font-semibold text-forest-700 transition-all duration-300 hover:bg-forest-600 hover:text-cream-100 hover:border-forest-600;
   }
   .metric-ring {
     background: conic-gradient(var(--ring-color) calc(var(--value) * 1%), rgba(255,255,255,0.25) 0);

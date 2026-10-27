@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import EnvironmentBar from './components/EnvironmentBar';
 import FieldMap from './components/FieldMap';
 import Dashboard from './components/Dashboard';
 import Advisories from './components/Advisories';
@@ -11,19 +12,38 @@ import AuthModal from './components/AuthModal';
 import AIAssistantPage from './components/AIAssistantPage';
 import { useAuth } from '@/lib/auth';
 import { useHashRoute } from '@/lib/router';
+import type { Persona } from '@/types';
 
 export default function App() {
   const [authOpen, setAuthOpen] = useState(false);
   const { user } = useAuth();
-  const [route, navigate] = useHashRoute();
+  const [{ route, persona }, navigate] = useHashRoute();
+  const [pendingPersona, setPendingPersona] = useState<Persona | null>(null);
 
-  const handleAskAI = () => {
+  const handleAsk = (p: Persona) => {
     if (!user) {
+      setPendingPersona(p);
       setAuthOpen(true);
     } else {
-      navigate('ai-assistant');
+      navigate('ai-assistant', p);
     }
   };
+
+  // Right after signing in from the home page, bring the user to "My environments".
+  useEffect(() => {
+    if (user && !pendingPersona && route === 'home') {
+      document.getElementById('environments')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [user?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // After a successful sign-in, continue to the chat the user asked for.
+  useEffect(() => {
+    if (user && pendingPersona) {
+      setAuthOpen(false);
+      navigate('ai-assistant', pendingPersona);
+      setPendingPersona(null);
+    }
+  }, [user, pendingPersona]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (route === 'ai-assistant') {
     if (!user) {
@@ -41,14 +61,15 @@ export default function App() {
         </div>
       );
     }
-    return <AIAssistantPage onNavigateHome={() => navigate('home')} />;
+    return <AIAssistantPage key={persona} initialPersona={persona} onNavigateHome={() => navigate('home')} />;
   }
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
-      <Navbar onAskAI={handleAskAI} onAuthClick={() => setAuthOpen(true)} onNavigateToAI={() => navigate('ai-assistant')} />
+      <Navbar onAsk={handleAsk} onAuthClick={() => setAuthOpen(true)} />
       <main>
-        <Hero />
+        <Hero onAsk={handleAsk} />
+        <EnvironmentBar onAuthClick={() => setAuthOpen(true)} />
         <Architecture />
         <FieldMap />
         <Dashboard />

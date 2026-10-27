@@ -20,7 +20,7 @@ export default function Footer() {
             </div>
             <p className="text-sm text-cream-100/60 max-w-sm text-pretty">
               Precision agriculture driven by sub-surface soil intelligence. Empowering
-              farmers with micro-localized, actionable insight — meter by meter.
+              farmers with micro-localized, actionable insight — point by point.
             </p>
           </div>
 
@@ -29,7 +29,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm text-cream-100/70">
               <li><a href="#field" className="hover:text-cream-100 transition">Field Map</a></li>
               <li><a href="#dashboard" className="hover:text-cream-100 transition">Sensor Dashboard</a></li>
-              <li><a href="#advisories" className="hover:text-cream-100 transition">AI Advisories</a></li>
+              <li><a href="#advisories" className="hover:text-cream-100 transition">Alerts</a></li>
               <li><a href="#savings" className="hover:text-cream-100 transition">Sustainability</a></li>
             </ul>
           </div>
@@ -37,10 +37,10 @@ export default function Footer() {
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-moss-200 font-semibold mb-4">Architecture</p>
             <ul className="space-y-2.5 text-sm text-cream-100/70">
-              <li className="flex items-center gap-2"><Radio className="w-3.5 h-3.5 text-moss-300" /> LoRa mesh · offline</li>
-              <li className="flex items-center gap-2"><Cpu className="w-3.5 h-3.5 text-moss-300" /> 7-in-1 sensor fusion</li>
-              <li className="flex items-center gap-2"><CloudRain className="w-3.5 h-3.5 text-moss-300" /> Weather × GPS fusion</li>
-              <li className="flex items-center gap-2"><Leaf className="w-3.5 h-3.5 text-moss-300" /> Topography-aware AI</li>
+              <li className="flex items-center gap-2"><Radio className="w-3.5 h-3.5 text-moss-300" /> ESP32 field unit</li>
+              <li className="flex items-center gap-2"><Cpu className="w-3.5 h-3.5 text-moss-300" /> 3 soil variables per point</li>
+              <li className="flex items-center gap-2"><CloudRain className="w-3.5 h-3.5 text-moss-300" /> Per-field weather</li>
+              <li className="flex items-center gap-2"><Leaf className="w-3.5 h-3.5 text-moss-300" /> Rule-based decision engine</li>
             </ul>
           </div>
         </div>

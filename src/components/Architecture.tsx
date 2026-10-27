@@ -1,32 +1,32 @@
-import { Radio, Wifi, Cloud, Satellite, Mountain, Layers, Cpu, ArrowRight } from 'lucide-react';
+import { Radio, Wifi, Cloud, Satellite, ArrowRight } from 'lucide-react';
 
 const LAYERS = [
   {
     icon: Radio,
     title: 'Sub-Surface Sensors',
-    desc: '7-in-1 probes planted in the 2nd soil layer — the shallow absorption root zone.',
-    detail: 'N · P · K · EC · Temp · pH · VWC',
+    desc: '3-in-1 probes measure moisture, soil temperature and EC at several points of the field.',
+    detail: 'Moisture · Soil temp · EC',
     color: '#839958',
   },
   {
     icon: Wifi,
-    title: 'Local Field Mesh',
-    desc: 'Sensors relay to a central gateway via LoRa / RS485 — no farmland Wi-Fi required.',
-    detail: 'Offline-tolerant · low-power',
+    title: 'ESP32 Field Unit',
+    desc: 'One ESP32 per crop collects the probe values and sends them to the cloud.',
+    detail: 'One unit per crop',
     color: '#105666',
   },
   {
     icon: Satellite,
     title: 'Cloud Sync',
-    desc: 'Gateway transmits aggregated packets over cellular or satellite uplink.',
-    detail: 'Store-and-forward · resilient',
+    desc: 'Readings are stored in the database. A value that was not measured stays empty, never 0.',
+    detail: 'Missing value = empty',
     color: '#3F7A5A',
   },
   {
     icon: Cloud,
-    title: 'AI Advisory Engine',
-    desc: 'Raw readings fused with topography & weather into plain-language instructions.',
-    detail: 'FAO-grounded · meter-specific',
+    title: 'Decision Engine',
+    desc: 'A rule-based engine combines readings, weather, crop and soil type using FAO-56 equations.',
+    detail: 'FAO-56 · explainable',
     color: '#D3968C',
   },
 ];
@@ -76,37 +76,7 @@ export default function Architecture() {
           })}
         </div>
 
-        {/* Topography callout */}
-        <div className="glass-card p-6 sm:p-8 grid md:grid-cols-3 gap-6 items-center">
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-3">
-              <Mountain className="w-5 h-5 text-forest-600" />
-              <h3 className="font-display text-xl font-semibold text-forest-700">Dynamic Elevation Factor</h3>
-            </div>
-            <p className="text-sm text-forest-700/60 text-pretty">
-              Fields are non-uniform. Low zones trap moisture and runoff; high zones dry
-              fastest. NAMAA adjusts every threshold and recommendation by slope, aspect,
-              and elevation — blanket formulas are strictly prohibited.
-            </p>
-          </div>
-          <div className="md:col-span-2 grid grid-cols-3 gap-3">
-            {[
-              { label: 'High zone', note: 'Tighten irrigation thresholds', icon: ArrowRight, color: '#1F5C42' },
-              { label: 'Mid zone', note: 'Standard thresholds apply', icon: Layers, color: '#839958' },
-              { label: 'Low zone', note: 'Relax thresholds · watch saturation', icon: Cpu, color: '#D3968C' },
-            ].map((z) => {
-              const ZI = z.icon;
-              return (
-                <div key={z.label} className="rounded-2xl bg-white/50 border border-white/60 p-4 text-center">
-                  <ZI className="w-5 h-5 mx-auto mb-2" style={{ color: z.color }} />
-                  <p className="font-semibold text-sm text-forest-700">{z.label}</p>
-                  <p className="text-[11px] text-forest-700/50 mt-0.5">{z.note}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+        {/* Topography callout */}      </div>
     </section>
   );
 }

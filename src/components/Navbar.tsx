@@ -1,20 +1,33 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, Leaf, LogOut, User as UserIcon, Sparkles } from 'lucide-react';
+import { Menu, X, Leaf, LogOut, User as UserIcon, Languages } from 'lucide-react';
 import { useAuth } from '@/lib/auth';
+import { displayNameOf } from '@/lib/auth-validation';
+import { useLang } from '@/lib/lang';
+import type { Persona } from '@/types';
 
 const LINKS = [
+  { href: '#environments', label: 'Environments' },
   { href: '#field', label: 'Field Map' },
   { href: '#dashboard', label: 'Dashboard' },
-  { href: '#advisories', label: 'AI Alerts' },
+  { href: '#advisories', label: 'Alerts' },
   { href: '#savings', label: 'Sustainability' },
 ];
 
-const AI_LINK = { label: 'AI Assistant' };
-
-export default function Navbar({ onAskAI, onAuthClick, onNavigateToAI }: { onAskAI: () => void; onAuthClick: () => void; onNavigateToAI: () => void }) {
+export default function Navbar({ onAsk, onAuthClick }: { onAsk: (persona: Persona) => void; onAuthClick: () => void }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { user, signOut } = useAuth();
+  const { lang, setLang } = useLang();
+  const name = displayNameOf(user);
+  const langButton = (
+    <button
+      onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
+      className="flex items-center gap-1.5 rounded-full bg-white/40 px-3 py-1.5 text-xs font-semibold text-forest-700 hover:bg-forest-600 hover:text-cream-100 transition"
+      title="Language of the alerts and decisions"
+    >
+      <Languages className="w-3.5 h-3.5" /> {lang === 'ar' ? 'EN' : 'عربي'}
+    </button>
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -37,20 +50,18 @@ export default function Navbar({ onAskAI, onAuthClick, onNavigateToAI }: { onAsk
 
         <div className="hidden md:flex items-center gap-1">
           {LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="px-4 py-2 rounded-full text-sm font-medium text-forest-700/80 hover:text-forest-700 hover:bg-white/50 transition-all">{l.label}</a>
+            <a key={l.href} href={l.href} className="px-4 py-2 rounded-full text-sm font-medium text-forest-700/80 hover:bg-forest-600 hover:text-cream-100 transition-all">{l.label}</a>
           ))}
-          <button onClick={onNavigateToAI} className="px-4 py-2 rounded-full text-sm font-medium text-forest-700/80 hover:text-forest-700 hover:bg-white/50 transition-all flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5" />
-            {AI_LINK.label}
-          </button>
-          <button onClick={onAskAI} className="btn-primary !py-2.5 !px-5 ml-2 text-sm">Ask NAMAA AI</button>
+          <button onClick={() => onAsk('nada')} className="btn-ghost !py-2.5 !px-5 ml-2 text-sm">Ask Nada</button>
+          <button onClick={() => onAsk('ghaith')} className="btn-primary !py-2.5 !px-5 ml-1 text-sm">Ask Ghaith</button>
+          <span className="ml-2">{langButton}</span>
           {user ? (
             <div className="flex items-center gap-2 ml-2">
               <span className="flex items-center gap-1.5 text-xs text-forest-700/60 bg-white/40 rounded-full px-3 py-1.5">
                 <UserIcon className="w-3.5 h-3.5" />
-                {user.email?.split('@')[0]}
+                {name}
               </span>
-              <button onClick={() => void signOut()} className="grid place-items-center w-9 h-9 rounded-full bg-white/40 text-forest-700/60 hover:bg-white/70 transition" aria-label="Sign out">
+              <button onClick={() => void signOut()} className="grid place-items-center w-9 h-9 rounded-full bg-white/40 text-forest-700/60 hover:bg-forest-600 hover:text-cream-100 transition" aria-label="Sign out">
                 <LogOut className="w-4 h-4" />
               </button>
             </div>
@@ -67,15 +78,13 @@ export default function Navbar({ onAskAI, onAuthClick, onNavigateToAI }: { onAsk
       {open && (
         <div className="md:hidden mt-3 mx-5 glass rounded-3xl p-4 flex flex-col gap-1 animate-fade-up">
           {LINKS.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="px-4 py-3 rounded-2xl text-sm font-medium text-forest-700 hover:bg-white/50">{l.label}</a>
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="px-4 py-3 rounded-2xl text-sm font-medium text-forest-700 hover:bg-forest-600 hover:text-cream-100">{l.label}</a>
           ))}
-          <button onClick={() => { setOpen(false); onNavigateToAI(); }} className="flex items-center gap-1.5 px-4 py-3 rounded-2xl text-sm font-medium text-forest-700 hover:bg-white/50 mt-1">
-            <Sparkles className="w-3.5 h-3.5" />
-            AI Assistant
-          </button>
-          <button onClick={() => { setOpen(false); onAskAI(); }} className="btn-primary mt-2 text-sm">Ask NAMAA AI</button>
+          <div className="mt-1 self-start">{langButton}</div>
+          <button onClick={() => { setOpen(false); onAsk('nada'); }} className="btn-ghost mt-2 text-sm">Ask Nada</button>
+          <button onClick={() => { setOpen(false); onAsk('ghaith'); }} className="btn-primary mt-1 text-sm">Ask Ghaith</button>
           {user ? (
-            <button onClick={() => { setOpen(false); void signOut(); }} className="btn-ghost mt-1 text-sm">Sign out ({user.email?.split('@')[0]})</button>
+            <button onClick={() => { setOpen(false); void signOut(); }} className="btn-ghost mt-1 text-sm">Sign out ({name})</button>
           ) : (
             <button onClick={() => { setOpen(false); onAuthClick(); }} className="btn-ghost mt-1 text-sm">Sign in</button>
           )}
